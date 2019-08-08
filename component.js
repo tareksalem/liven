@@ -33,7 +33,7 @@ class Component {
                     }
                 } else if (beforeOut.animate) {
                     if (this.self) {
-                        let animation = await this.self.animate([beforeOut.animate.from, beforeOut.animate.to], beforeOut.animate.props);
+                        let animation = await this.self.animate([beforeOut.animate.from, beforeOut.animate.to], beforeOut.animate.options);
                         if (beforeOut.animate.callback) {
                             animation.onfinish = beforeOut.animate.callback;
                         }
@@ -257,7 +257,7 @@ class Component {
     }
 
     async init(cb) {
-        this.out();
+        await this.out();
         this._shadow$store = JSON.stringify(this.$store);
         this.reset();
         // init on init function

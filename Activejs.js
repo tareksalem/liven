@@ -12,11 +12,12 @@ import ActiveHelpers from "./helpers.js";
 import "./elementActions.js";
 import HTTP from "./http.js";
 import componentObject from "./component.js"
-import EventEmitter from "./EventEmitter";
+import EventEmitter from "./EventEmitter.js";
 
 class ActiveJs {
     // define the constructor
     constructor() {
+
         this.components = [];
         this.DOM = {};
         this.DOM.history = {};
@@ -47,6 +48,8 @@ class ActiveJs {
         this.helpers = {};
         // define checks
         this.helpers.checks = ActiveHelpers.checks;
+        this.helpers.deep_value = ActiveHelpers.deep_value;
+        this.helpers.deep_set = ActiveHelpers.deep_set;
         // file upload method
         this.fileUpload = ActiveHelpers.fileUpload
         // 

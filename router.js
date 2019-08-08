@@ -10,7 +10,9 @@ Router module
 import URLPattern from "./url-pattern.js";
 import ActiveHelpers from "./helpers.js";
 import EventEmitter from "./EventEmitter.js";
-import onChange from "./onchange";
+import {
+    onChange
+} from "./onchange.js";
 var query = {};
 window.location.search.substring(1).split('&').forEach(function (pair) {
     pair = pair.split('=');
@@ -469,7 +471,7 @@ const routerObject = {
                     type: "route",
                     method: self.req.method,
                     status: self.res.statusCode,
-                    url: req.url,
+                    url: self.req.url,
                     time: Date.now()
                 });
                 return self.active.errorPage(self.req, self.res)

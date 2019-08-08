@@ -42,10 +42,10 @@ ActiveHelpers.component.inherentElements = (self, componentElement) => {
 // fade in the component
 ActiveHelpers.component.fadeIn = (self, componentElement) => {
     if (self.props.fadeIn) {
-        if (!self.props.fadeIn.cb) {
-            componentElement.fadeIn(self.props.fadeIn.duration);
+        if (!self.props.fadingIn.cb) {
+            componentElement.fadeIn(self.props.fadingIn.duration);
         } else if (self.props.fadeIn.cb) {
-            componentElement.fadeIn(self.props.fadeIn.duration, self.props.fadeIn.cb());
+            componentElement.fadeIn(self.props.fadingIn.duration, self.props.fadingIn.cb());
         }
     }
 }
@@ -963,35 +963,41 @@ ActiveHelpers.resolveElementId = (component) => {
 // If statments resolver
 ActiveHelpers.ifStatmentResolver = (updated, shadowElement, self) => {
     // console.log(updated, shadowElement, self)
-    let $store = self.$store;
-    // check if the statment is if
-    if (shadowElement.getAttribute("A-if")) {
-        // check if the statment is else
-        let attributeValue = shadowElement.getAttribute("A-if");
-        let statment = eval(attributeValue);
-        let content = shadowElement.cloneNode(true).childNodes;
-        updated.innerHTML = "";
-        if (statment) {
-            updated.append(...content)
-            Array.from(updated.querySelectorAll("*")).forEach((element) => {
-                ActiveHelpers.removeAttributes(element)
-            });
-        } else {
-            return false;
+    try {
+        let $store = self.$store;
+        // check if the statment is if
+        if (shadowElement.getAttribute("A-if")) {
+            // check if the statment is else
+            let attributeValue = shadowElement.getAttribute("A-if");
+            // console.log(attributeValue)
+            console.log(attributeValue);
+            let statment = eval(attributeValue);
+            let content = shadowElement.cloneNode(true).childNodes;
+            updated.innerHTML = "";
+            if (statment) {
+                updated.append(...content)
+                Array.from(updated.querySelectorAll("*")).forEach((element) => {
+                    ActiveHelpers.removeAttributes(element)
+                });
+            } else {
+                return false;
+            }
+        } else if (shadowElement.getAttribute("A-not")) {
+            let attributeValue = shadowElement.getAttribute("A-not");
+            let statment = eval(attributeValue);
+            let content = shadowElement.cloneNode(true).childNodes;
+            updated.innerHTML = "";
+            if (statment) {
+                return false;
+            } else {
+                updated.append(...content)
+                Array.from(updated.querySelectorAll("*")).forEach((element) => {
+                    ActiveHelpers.removeAttributes(element)
+                });
+            }
         }
-    } else if (shadowElement.getAttribute("A-not")) {
-        let attributeValue = shadowElement.getAttribute("A-not");
-        let statment = eval(attributeValue);
-        let content = shadowElement.cloneNode(true).childNodes;
-        updated.innerHTML = "";
-        if (statment) {
-            return false;
-        } else {
-            updated.append(...content)
-            Array.from(updated.querySelectorAll("*")).forEach((element) => {
-                ActiveHelpers.removeAttributes(element)
-            });
-        }
+    } catch (e) {
+        console.log(e)
     }
 }
 // method to add dom events to elements

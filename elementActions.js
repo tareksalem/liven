@@ -7,7 +7,7 @@ elements actions and events module
 ==============================
  */
 Object.defineProperty(Object.prototype, "isEmpty", {
-    value: function () {
+    value: function() {
         if (this && typeof this === 'object') {
             if (Array.from(Object.keys(this)).length === 0) {
                 return true;
@@ -17,7 +17,7 @@ Object.defineProperty(Object.prototype, "isEmpty", {
         }
     }
 })
-HTMLElement.prototype.removeThis = function () {
+HTMLElement.prototype.removeThis = function() {
     if (this.parentNode) {
         if (this.parentNode.hasChildNodes(this)) {
             this.parentNode.removeChild(this);
@@ -28,7 +28,7 @@ HTMLElement.prototype.removeThis = function () {
         return null;
     }
 };
-Element.prototype.appendElements = function (content) {
+Element.prototype.appendElements = function(content) {
     if (typeof content === 'object') {
         return this.appendChild(content);
     } else if (typeof content === 'string') {
@@ -37,7 +37,7 @@ Element.prototype.appendElements = function (content) {
         return this.insertAdjacentHTML('beforeEnd', content);
     }
 };
-Element.prototype.reset = function () {
+Element.prototype.reset = function() {
     if (this.tagName === 'FORM') {
         Array.from(this.querySelectorAll('input')).forEach(input => {
             if (input.getAttribute('type') !== 'submit') {
@@ -49,7 +49,7 @@ Element.prototype.reset = function () {
     }
 };
 // get the parents of element
-Element.prototype.parents = function (parent) {
+Element.prototype.parents = function(parent) {
     var element = this;
     var els = [];
     while (element) {
@@ -64,8 +64,8 @@ Element.prototype.parents = function (parent) {
             parent;
         if (parent.length > 0) {
             var par = [];
-            parent.forEach(function (paren) {
-                els.forEach(function (el) {
+            parent.forEach(function(paren) {
+                els.forEach(function(el) {
                     if (el === paren) {
                         par.push(paren);
                     }
@@ -74,7 +74,7 @@ Element.prototype.parents = function (parent) {
             return par[0];
         } else {
             var par = [];
-            els.forEach(function (el) {
+            els.forEach(function(el) {
                 if (el === parent) {
                     par.push(parent);
                 }
@@ -83,17 +83,17 @@ Element.prototype.parents = function (parent) {
         }
     }
 };
-Element.prototype.insertAfter = function (element) {
+Element.prototype.insertAfter = function(element) {
     if (typeof element === 'string') {
         this.insertAdjacentHTML('afterend', element);
     } else if (typeof element === 'object') {
         this.parentNode.insertBefore(element, this.nextSibling);
     }
 };
-document.liveEvent = function (event, target, cb, option) {
+document.liveEvent = function(event, target, cb, option) {
     document.addEventListener(
         event,
-        function (e) {
+        function(e) {
             // check if the type of target is string # Means Element
             if (typeof target == 'string') {
                 var targetElements = document.querySelectorAll(target);
@@ -112,7 +112,7 @@ document.liveEvent = function (event, target, cb, option) {
 };
 //functions of dome events
 
-Element.prototype.getSiblings = function () {
+Element.prototype.getSiblings = function() {
     let elem = this;
     if (Array.isArray(elem)) {
         Array.from(elem).forEach(elm => {
@@ -140,7 +140,7 @@ Element.prototype.getSiblings = function () {
 };
 /*function to make an events of the dom with on event*/
 Object.defineProperty(Object.prototype, "addEvent", {
-    value: function (event, cb, option) {
+    value: function(event, cb, option) {
         let self = this;
         if (self) {
             if (self.length !== undefined && self.length > 0) {
@@ -186,9 +186,8 @@ Object.defineProperty(Object.prototype, "addEvent", {
     writable: true
 })
 
-HTMLElement.prototype.addEvent = function (event, cb, option) {
+HTMLElement.prototype.addEvent = function(event, cb, option) {
     let self = this;
-
     try {
         return self.addEventListener(
             `${event}`,
@@ -202,7 +201,7 @@ HTMLElement.prototype.addEvent = function (event, cb, option) {
     }
 };
 Object.defineProperty(Object.prototype, "removeEvent", {
-    value: function (event, cb, option) {
+    value: function(event, cb, option) {
         let self = this;
         if (self) {
             if (self.length !== undefined && self.length > 0) {
@@ -266,14 +265,14 @@ HTMLElement.prototype.removeEvent = (event, cb, option) => {
 /*function to make toggle click of a specific element, it returns a two callback the first one for the first click and the second callback for the second click*/
 
 Object.defineProperty(Object.prototype, "toggleClick", {
-    value: function (cb1, cb2) {
+    value: function(cb1, cb2) {
         var trgetElem = this;
         var clicked = 0;
         if (cb1 && cb2) {
             try {
                 if (trgetElem.length > 1) {
-                    Array.from(trgetElem).forEach(function (el, i) {
-                        el.addEventListener('click', function (event) {
+                    Array.from(trgetElem).forEach(function(el, i) {
+                        el.addEventListener('click', function(event) {
                             clicked++;
                             if (clicked === 1) {
                                 return cb1(event);
@@ -284,7 +283,7 @@ Object.defineProperty(Object.prototype, "toggleClick", {
                         });
                     });
                 } else if (trgetElem.length === 1) {
-                    trgetElem.addEventListener('click', function (event) {
+                    trgetElem.addEventListener('click', function(event) {
                         clicked++;
                         if (clicked === 1) {
                             return cb1(event);
@@ -304,7 +303,7 @@ Object.defineProperty(Object.prototype, "toggleClick", {
 HTMLElement.prototype.toggleClick = (cb1, cb2) => {
     let trgetElem = this;
     let clicked = 0;
-    trgetElem.addEventListener('click', function (event) {
+    trgetElem.addEventListener('click', function(event) {
         clicked++;
         if (clicked === 1) {
             return cb1(event);
@@ -318,24 +317,24 @@ HTMLElement.prototype.toggleClick = (cb1, cb2) => {
 
 /*function to make toggle hover of a specific element, it returns a two callback the first one for the first hover and the second callback for the second hover*/
 Object.defineProperty(Object.prototype, "toggleHover", {
-    value: function (cb1, cb2) {
+    value: function(cb1, cb2) {
         var trgetElem = this;
         if (cb1 && cb2) {
             try {
                 if (trgetElem.length > 1) {
-                    Array.from(trgetElem).forEach(function (el, i) {
-                        el.addEventListener('mouseenter', function (event) {
+                    Array.from(trgetElem).forEach(function(el, i) {
+                        el.addEventListener('mouseenter', function(event) {
                             return cb1(event);
                         });
-                        el.addEventListener('mouseleave', function (event) {
+                        el.addEventListener('mouseleave', function(event) {
                             return cb2(event);
                         });
                     });
                 } else if (trgetElem.length === 1) {
-                    trgetElem.addEventListener('mouseenter', function (event) {
+                    trgetElem.addEventListener('mouseenter', function(event) {
                         return cb1(event);
                     });
-                    trgetElem.addEventListener('mouseleave', function (event) {
+                    trgetElem.addEventListener('mouseleave', function(event) {
                         return cb2(event);
                     });
                 }
@@ -348,10 +347,10 @@ Object.defineProperty(Object.prototype, "toggleHover", {
 })
 HTMLElement.prototype.toggleHover = (cb1, cb2) => {
     let trgetElem = this;
-    trgetElem.addEventListener('mouseenter', function (event) {
+    trgetElem.addEventListener('mouseenter', function(event) {
         return cb1(event);
     });
-    trgetElem.addEventListener('mouseleave', function (event) {
+    trgetElem.addEventListener('mouseleave', function(event) {
         return cb2(event);
     });
 };
@@ -363,11 +362,11 @@ HTMLElement.prototype.toggleHover = (cb1, cb2) => {
 
 // slidedown function
 
-HTMLElement.prototype.slideDown = function (time, display) {
+HTMLElement.prototype.slideDown = function(time, display) {
     return new Promise((resolve, reject) => {
         try {
             var element = this;
-            window.onload = function () {
+            window.onload = function() {
                 makeSliding(element);
             };
 
@@ -393,7 +392,7 @@ HTMLElement.prototype.slideDown = function (time, display) {
                         element.style.height = currentHeight + '%';
                     }
                     var currentTime = splitHeight / (time / 10);
-                    var animate = function () {
+                    var animate = function() {
                         currentHeight += currentTime;
                         if (originalHeight.match(/px/gi)) {
                             element.style.height = currentHeight + 'px';
@@ -410,7 +409,7 @@ HTMLElement.prototype.slideDown = function (time, display) {
                         }
                     };
                     animate();
-                    setTimeout(function () {
+                    setTimeout(function() {
                         return resolve(element);
                     }, time);
                 }
@@ -428,7 +427,7 @@ HTMLElement.prototype.slideDown = function (time, display) {
 
 // slideup function
 
-HTMLElement.prototype.slideUp = function (time) {
+HTMLElement.prototype.slideUp = function(time) {
     return new Promise((resolve, reject) => {
         try {
             var element = this;
@@ -444,7 +443,7 @@ HTMLElement.prototype.slideUp = function (time) {
                 var currentHeight = Number.parseInt(originalHeight);
                 if (displayStatus !== 'none') {
                     let currentTime = splitHeight / (time / 10);
-                    var animate = function () {
+                    var animate = function() {
                         currentHeight -= currentTime;
                         element.style.height = currentHeight + typeHeight;
                         if (currentHeight <= 0) {
@@ -457,7 +456,7 @@ HTMLElement.prototype.slideUp = function (time) {
                     };
                     requestAnimationFrame(animate);
                 }
-                setTimeout(function () {
+                setTimeout(function() {
                     return resolve(element);
                 }, time);
             }
@@ -471,7 +470,7 @@ HTMLElement.prototype.slideUp = function (time) {
 
 // function for fade toggle
 
-HTMLElement.prototype.fadeToggle = function (duration, displayTo) {
+HTMLElement.prototype.fadeToggle = function(duration, displayTo) {
     return new Promise((resolve, reject) => {
         try {
             var element = this;
@@ -510,7 +509,7 @@ HTMLElement.prototype.fadeToggle = function (duration, displayTo) {
 
 // function for slideToggle
 
-HTMLElement.prototype.slideToggle = function (duration, displayTo) {
+HTMLElement.prototype.slideToggle = function(duration, displayTo) {
     return new Promise((resolve, reject) => {
         try {
             var element = this;
@@ -548,13 +547,13 @@ HTMLElement.prototype.slideToggle = function (duration, displayTo) {
 // end function for slideToggle
 
 // fade in function
-HTMLElement.prototype.fadeIn = function (duration, display) {
+HTMLElement.prototype.fadeIn = function(duration, display) {
     return new Promise((resolve, reject) => {
         try {
             var element = this;
             element.style.opacity = 0;
             var last = +new Date();
-            var animate = function () {
+            var animate = function() {
                 element.style.opacity = +element.style.opacity + (new Date() - last) / duration;
                 last = +new Date();
                 element.style.display = display && typeof display === 'string' ?
@@ -568,7 +567,7 @@ HTMLElement.prototype.fadeIn = function (duration, display) {
                 }
             };
             animate();
-            setTimeout(function () {
+            setTimeout(function() {
                 return resolve(element);
             }, duration);
         } catch (e) {
@@ -579,13 +578,13 @@ HTMLElement.prototype.fadeIn = function (duration, display) {
 };
 
 // fade out function
-HTMLElement.prototype.fadeOut = function (duration) {
+HTMLElement.prototype.fadeOut = function(duration) {
     return new Promise((resolve, rejected) => {
         try {
             var element = this;
             element.style.opacity = 1;
             var last = +new Date();
-            var animate = function () {
+            var animate = function() {
                 element.style.opacity = +element.style.opacity - (new Date() - last) / duration;
                 last = +new Date();
                 if (+element.style.opacity < 0) {
@@ -597,7 +596,7 @@ HTMLElement.prototype.fadeOut = function (duration) {
                 }
             };
             animate();
-            setTimeout(function () {
+            setTimeout(function() {
                 return resolve(element);
             }, duration);
         } catch (e) {
@@ -608,7 +607,7 @@ HTMLElement.prototype.fadeOut = function (duration) {
 // end fade out function
 
 // animating function
-HTMLElement.prototype.animating = function (
+HTMLElement.prototype.animating = function(
     boxRotationKeyframes,
     boxRotationTiming
 ) {
@@ -617,7 +616,7 @@ HTMLElement.prototype.animating = function (
             this.animate(
                 boxRotationKeyframes,
                 boxRotationTiming
-            ).onfinish = function () {
+            ).onfinish = function() {
                 return resolve(this);
             };
         } catch (e) {

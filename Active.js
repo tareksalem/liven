@@ -7,13 +7,12 @@ Core module
  */
 
 // dependencies
-import routerObject from "./router.js";
-import ActiveHelpers from "./helpers.js";
-import "./elementActions.js";
-import HTTP from "./http.js";
-import componentObject from "./component.js"
 import EventEmitter from "./EventEmitter.js";
-
+import componentObject from './component.js';
+import "./elementActions.js";
+import ActiveHelpers from "./helpers.js";
+import HTTP from "./http.js";
+import routerObject from "./router.js";
 class ActiveJs {
     // define the constructor
     constructor() {
@@ -37,7 +36,7 @@ class ActiveJs {
         }
         routerObject.active = this;
         if (!this.errorPage) {
-            this.errorPage = function (req, res) {}
+            this.errorPage = function(req, res) {}
         }
         this.Router = routerObject.Router;
         routerObject.clickListener();
@@ -52,7 +51,7 @@ class ActiveJs {
         this.helpers.deep_set = ActiveHelpers.deep_set;
         // file upload method
         this.fileUpload = ActiveHelpers.fileUpload
-        // 
+            // 
         this.filterContent = ActiveHelpers.filterContent;
 
         // loop elements method
@@ -63,43 +62,43 @@ class ActiveJs {
         this.HTTP = new HTTP();
     }
     setConfig(config) {
-        this.config = config;
-        this.errorPage = config.errorPage || function (req, res) {}
-        this.mode = config.mode || "development";
-        ActiveHelpers.mode = this.mode;
+            this.config = config;
+            this.errorPage = config.errorPage || function(req, res) {}
+            this.mode = config.mode || "development";
+            ActiveHelpers.mode = this.mode;
 
-    }
-    // ready method when the document is fully loaded
+        }
+        // ready method when the document is fully loaded
     ready(cb) {
-        let loadInterval = setInterval(() => {
-            if (document.readyState == 'complete') {
-                clearInterval(loadInterval);
-                return cb();
-            }
-        }, 100);
-    }
-    // while loading function
-    whileLoading(cb, after) {
-        var i = 0;
-        let loadInterval = setInterval(() => {
-            if (document.readyState == 'complete') {
-                clearInterval(loadInterval);
-                setTimeout(() => {
-                    if (after) {
-                        return after();
-                    } else {
-                        return true;
-                    }
-                }, 100);
-            } else {
-                i++;
-                if (i === 1) {
+            let loadInterval = setInterval(() => {
+                if (document.readyState == 'complete') {
+                    clearInterval(loadInterval);
                     return cb();
                 }
-            }
-        }, 1);
-    }
-    // get cookie method
+            }, 100);
+        }
+        // while loading function
+    whileLoading(cb, after) {
+            var i = 0;
+            let loadInterval = setInterval(() => {
+                if (document.readyState == 'complete') {
+                    clearInterval(loadInterval);
+                    setTimeout(() => {
+                        if (after) {
+                            return after();
+                        } else {
+                            return true;
+                        }
+                    }, 100);
+                } else {
+                    i++;
+                    if (i === 1) {
+                        return cb();
+                    }
+                }
+            }, 1);
+        }
+        // get cookie method
     getCookie(cookieName) {
         let cname = cookieName;
         var name = cname + "=";
@@ -119,25 +118,25 @@ class ActiveJs {
 
     // set cookie function
     setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
-    // function to out multiple components
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        // function to out multiple components
     manyOut(componentsArray) {
         let outs = [];
         componentsArray.map((component) => outs.push(component.out()));
         return Promise.all(outs);
     }
 }
-const Activejs = new ActiveJs();
-const Http = Activejs.HTTP;
+const Active = new ActiveJs();
+const Http = Active.HTTP;
 const Validation = ActiveHelpers.validation;
-const Component = Activejs.Component;
-const Router = Activejs.Router;
+const Component = Active.Component;
+const Router = Active.Router;
 export {
-    Activejs,
+    Active,
     EventEmitter,
     Http,
     Validation,

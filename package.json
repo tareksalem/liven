@@ -1,12 +1,15 @@
 {
-  "name": "activejs",
-  "version": "1.0.0",
-  "description": "A Frontend Js Framework for building amazing single page apps",
-  "main": "Activejs.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "tareksalem\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D salem",
-  "keywords": ["js", "javascript", "activejs", "signle page app", "spa", "single page application", "single page app", "frontend", "angular", "react", "web development", "routing", "component"],
-  "license": "ISC"
+    "name": "active",
+    "version": "1.0.0",
+    "description": "A Frontend Js Framework for building amazing single page apps",
+    "main": "Active.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "tareksalem\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D salem",
+    "keywords": ["js", "javascript", "activejs", "signle page app", "spa", "single page application", "single page app", "frontend", "angular", "react", "web development", "routing", "component"],
+    "license": "ISC",
+    "dependencies": {
+        "handlebars": "*"
+    }
 }

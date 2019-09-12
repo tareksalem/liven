@@ -185,7 +185,7 @@ When you instantiate a new component there are some configuration and settings y
 ```javascript
 header.init();
 ```
-This function make initialization to the component, also you can make the component auto initialized when you instance a new component like the following
+This function makes initialization to the component, also you can make the component auto initialized when you instance a new component like the following
 ```javascript
 class Header extends Component{
     // call constructor
@@ -210,3 +210,41 @@ const header = new Heder({
 });
 ```
 
+#### Activejs Component life cycle
+Activejs Component passes with some cycles starts from init event and ends with out method
+1. ``component.init() method``
+
+THis method is mandatory to use to initialize the component like the example above
+
+2. ``component.onInit()``
+
+This method you use inside the component class to make some events or any logic you want to apply when the component is initialized
+
+**Example**
+
+```javascript
+class App extends Component{
+    constructor(props) {
+        super(props);
+    }
+    onInit() {
+        alert();
+    }
+}
+```
+3. ``component.load()``
+
+This method is used to apply something when the component finishes loading, and the meaning of loading here if you are calling external API or use ajax to do something
+```javascript
+class App extends Component{
+    constructor(props) {
+        super(props);
+    }
+    onInit() {
+        alert();
+    }
+    load() {
+        console.log("component now is fully loaded");
+    }
+}
+```

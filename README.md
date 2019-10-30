@@ -1,4 +1,4 @@
-## Active js
+## Liven js
 A scalable Frontend Javascript framework for high performance and flexibility for building solid Single Page Apps
 
 ### Use Cases
@@ -20,7 +20,7 @@ A scalable Frontend Javascript framework for high performance and flexibility fo
 ### Getting Started
 #### Example
 ```javascript
-import {Active, Component} from "Active.js"
+import {Liven, Component} from "liven"
 
 class HomeComponent extends Component{
 
@@ -31,7 +31,7 @@ class HomeComponent extends Component{
         
         this.$store.message = "hello";
         
-        this.$store.frameWork = "Activejs"
+        this.$store.frameWork = "liven"
         
         // init the component on instantiate
         this.init();
@@ -58,18 +58,18 @@ const home = new HomeComponent({
 
 #### installing
 ```
-npm install activejs
+npm install liven
 ```
 
 #### Components
-Activejs is build upon component concept, it divides the web page into components and every component can contain many and many small components inside it and every component is isolated with specific data model which is active along the time and reflects dom changes once you change the data of that component
+Liven js is build upon component concept, it divides the web page into components and every component can contain many and many small components inside it and every component is isolated with specific data model which is active along the time and reflects dom changes once you change the data of that component
 
-Activejs uses Javascript Es6 classes to extend Activejs component class to your own custom components
-Activejs uses native html elements without shadow root or web components to give you best performance and SEO optimization
+Liven js uses Javascript Es6 classes to extend Liven js component class to your own custom components
+Liven js uses native html elements without shadow root or web components to give you best performance and SEO optimization
 
 **Example**
 ```javascript
-import {Active, Component} from "Active.js"
+import {Liven, Component} from "liven"
 
 class HomeComponent extends Component{
 
@@ -80,7 +80,7 @@ class HomeComponent extends Component{
         
         this.$store.message = "hello";
         
-        this.$store.frameWork = "Activejs"
+        this.$store.frameWork = "Livenjs"
         
         // init the component on instantiate
         this.init();
@@ -94,10 +94,10 @@ class HomeComponent extends Component{
     }
 ```
 
-to create your first Activejs Component you need to import Activejs and Component classes from Activejs as the following:
+to create your first Livenjs Component you need to import Liven and Component classes from liven as the following:
 
 ```javascript
-import {Active, Component} from "Active.js"
+import {Liven, Component} from "liven"
 ```
 Now to write your own component you need to extend a class from Component class like the following
 
@@ -119,7 +119,7 @@ You have two options to write component html content as the following
 - write html elements as string inside render function in component class
 - write html content in separated html file
 
-##### Write HTML content inside Activejs Component file
+##### Write HTML content inside Livenjs Component file
 ```javascript
 class Header extends Component{
     // call constructor
@@ -138,7 +138,7 @@ class Header extends Component{
     }
 }
 ```
-Until now Activejs component will not be working because you need two things:
+Until now Livenjs component will not be working because you need two things:
 1. create a parent element in html page to put this component inside it
 2. instantiate this component and init it
 
@@ -153,7 +153,7 @@ Now create html file called ``index.html``
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Activejs Example</title>
+    <title>Livenjs Example</title>
 </head>
 
 <body>
@@ -181,7 +181,7 @@ When you instantiate a new component there are some configuration and settings y
 |fadeIn |fadeIn animation you want to add to the component when it initialized |Object |false | Object|
 |slideDown |slideDown animation you want to add to the component when it initialized |Object |false | Object|
 
-**initialize Activejs Component**
+**initialize Livenjs Component**
 ```javascript
 header.init();
 ```
@@ -210,8 +210,8 @@ const header = new Heder({
 });
 ```
 
-#### Activejs Component life cycle
-Activejs Component passes with some cycles starts from init event and ends with out method
+#### Livenjs Component life cycle
+Liven Component passes with some cycles starts from init event and ends with out method
 1. ``component.init() method``
 
 THis method is mandatory to use to initialize the component like the example above

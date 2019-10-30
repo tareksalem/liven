@@ -1,15 +1,72 @@
 {
-    "name": "activejs",
-    "version": "1.0.0",
-    "description": "A Frontend Js Framework for building amazing single page apps",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "author": "tareksalem\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D salem",
-    "keywords": ["js", "javascript", "activejs", "signle page app", "spa", "single page application", "single page app", "frontend", "angular", "react", "web development", "routing", "component"],
-    "license": "ISC",
-    "dependencies": {
-        "handlebars": "*"
-    }
+  "_from": "liven",
+  "_id": "liven@1.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-BMmNiq5pTfJB35Zbj9HTe/3XRxf62IHVyuoMY9jEqplr/LNWC7zGkrGBWcnBCIR7kHUeJCMJJCcY5JMW22wyvg==",
+  "_location": "/liven",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "liven",
+    "name": "liven",
+    "escapedName": "liven",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/liven/-/liven-1.0.0.tgz",
+  "_shasum": "4aff48b594613a83060f8c3c199b8e28f7a1189a",
+  "_spec": "liven",
+  "_where": "/media/tareksalem/New Volume/menenwebkam frontend",
+  "author": {
+    "name": "tareksalem"
+  },
+  "bugs": {
+    "url": "https://github.com/tareksalem/liven/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "handlebars": "*"
+  },
+  "deprecated": false,
+  "description": "A Frontend Js Framework for building amazing single page apps",
+  "devDependencies": {},
+  "directories": {
+    "lib": "lib"
+  },
+  "homepage": "https://github.com/tareksalem/liven",
+  "keywords": [
+    "js",
+    "javascript",
+    "activejs",
+    "signle page app",
+    "spa",
+    "single page application",
+    "single page app",
+    "frontend",
+    "angular",
+    "react",
+    "web development",
+    "routing",
+    "component",
+    "liven",
+    "liven.js",
+    "liven js"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "liven",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tareksalem/liven.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
 }

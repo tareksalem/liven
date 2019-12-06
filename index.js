@@ -11,7 +11,7 @@ import {
     Liven,
     EventEmitter,
     Http,
-    Validation,
+    Validator,
     Component,
     Router
 } from "./lib/liven";
@@ -21,7 +21,7 @@ export {
     Liven,
     EventEmitter,
     Http,
-    Validation,
+    Validator,
     Component,
     Router
 }

@@ -1,6 +1,6 @@
 {
     "name": "liven",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "description": "A Frontend Js Framework for building amazing single page apps",
     "main": "index.js",
     "scripts": {

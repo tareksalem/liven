@@ -4,20 +4,44 @@ A scalable Frontend Javascript framework for high performance and flexibility fo
 ### Use Cases
 1. You can use this framework to build small single page apps
 2. You can use this framework to build scalable and large single page apps
+3- less dependencies more productivity
+5- kick starting app
 
 ### Features
-1. Components based
+1. Component based
 2. zero time to start your development process
-3. no need for webpack or any module bundler
-4. Scalable Framework which allows you to build any type of single page apps
-5. Uses Javascript Es6 code syntax and class concept
+3. Scalable Framework which allows you to build any type of single page apps
+4. Uses Javascript Es6 code syntax and class concept
    Uses Javascript Proxy for real time dom updates
-6. Solid Routing System
-7. Dom Updating without emitting any functions to change the DOM
-8. Isolated components and Data Model for every component
-9. Writing isolated HTML component and JS component or writing them together in the same file
+5. Solid Routing System
+6. Dom Updating without emitting any functions to change the DOM
+7. Isolated components and Data Model for every component
+8. Writing isolated HTML component and JS component or writing them together in the same file
+9. Shadow DOM based
 
-### Getting Started
+**content**
+  - [Installing](#installing)
+  - [Setup]($setup)
+  - [Getting Started](#getting-started)
+  - [Component]($component)
+    - [Extend Component](#extend-component)
+    - [Component HTML](#component-html)
+    - [render HTML Component](#render-html-component)
+    - [Component Controller](#component-controller)
+    - [Component Props](#component-props)
+    - [Component Data](#component-data)
+    - [Component Life cycle](#component-life-cycle)
+    - [Component Methods](#component-methods)
+    - [Data Binding](#component-data-binding)
+        - [Passing Data to html](passing-data-to-html)
+        - [Accessing data inside html](#accessing-data-inside-html)
+    - [Data Changing](#data-changing)
+    - [loop In Data](#loop-in-data)
+    - [Component Event Emitter](#component-event-emitter)
+    - [Child Components](#child-components)
+    - [looped Components](#looped-components)
+
+## Getting Started
 #### Example
 ```javascript
 import {Liven, Component} from "liven"

@@ -14,7 +14,7 @@ import {
     Validator,
     Component,
     Router
-} from "./lib/liven.js";
+} from "./lib/liven";
 
 //  export these libs
 export {

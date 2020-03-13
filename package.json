@@ -1,6 +1,6 @@
 {
     "name": "liven",
-    "version": "1.0.5",
+    "version": "1.0.7",
     "description": "A Frontend Js Framework for building amazing single page apps",
     "main": "index.js",
     "scripts": {
@@ -11,7 +11,7 @@
         "js",
         "javascript",
         "activejs",
-        "signle page app",
+        "single page app",
         "spa",
         "single page application",
         "single page app",

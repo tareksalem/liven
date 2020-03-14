@@ -1,4 +1,5 @@
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@8.4.0/dist/mermaid.min.js"></script>
+
+<img src="./liven-js.png" width="400" height="400" style=""/>
 
 ## Liven js
 A scalable Frontend Javascript framework for high performance and flexibility for building solid Single Page Apps

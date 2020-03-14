@@ -1,5 +1,5 @@
 
-<img src="./liven-js.png" width="400" height="400" style=""/>
+<p align="center"><img src="./liven-js.png" width="300" height="300"/></p>
 
 ## Liven js
 A scalable Frontend Javascript framework for high performance and flexibility for building solid Single Page Apps

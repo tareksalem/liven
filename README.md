@@ -7,8 +7,9 @@ A scalable Frontend Javascript framework for high performance and flexibility fo
 ### Use Cases
 1. You can use this framework to build small single page apps
 2. You can use this framework to build scalable and large single page apps
-3- less dependencies more productivity
-5- kick starting app
+2. Fast prototype app
+3. Use Liven with grandjs for backend because they are similar
+4. Large app with different user privileges by using Liven Routing system middlewares
 
 ### Features
 1. Component based
@@ -17,10 +18,13 @@ A scalable Frontend Javascript framework for high performance and flexibility fo
 4. Uses Javascript Es6 code syntax and class concept
    Uses Javascript Proxy for real time dom updates
 5. Solid Routing System
-6. Dom Updating without emitting any functions to change the DOM
+6. Dom Updating without emitting any events to change the DOM
 7. Isolated components and Data Model for every component
 8. Writing isolated HTML component and JS component or writing them together in the same file
 9. Shadow DOM based
+10. New way in form submission and handling form data
+11. less memory usage and high performance
+# Comparison with other frameworks
 
 **content**
   - [Installing](#installing)
